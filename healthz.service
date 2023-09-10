@@ -1,0 +1,13 @@
+[Unit]
+Description=Healthz server
+After=network.target
+Wants=network-online.target
+
+[Service]
+Restart=no
+Type=simple
+ExecStart=/usr/bin/healthz
+Environment='ROCKET_ADDRESS=0.0.0.0' 'ROCKET_PORT=10256'
+
+[Install]
+WantedBy=multi-user.target
